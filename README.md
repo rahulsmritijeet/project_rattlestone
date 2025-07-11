@@ -1,39 +1,98 @@
-# 🌍 RATTlestone: The Rural Climate Vigilante 🚨
+# 🌍 Rattlestone: The Rural Climate Vigilante 🚨
 
-> A scalable, low-cost weather station prototype for detecting **illegal carbon emissions** in rural industrial zones — powered by **ESP32 NodeMCU** and **Arduino Uno Rev3**.
+> A scalable, low-cost weather station prototype for detecting **illegal carbon emissions** in rural industrial zones — powered by **ESP32 NodeMCU** or **Arduino Uno Rev3**.
 
 ---
 
 ## 🧠 Key Features
 
-- ✅ **MQ135 Air Quality Sensor** (Detects CO₂, NH₃, smoke, etc.)
-- 🌡️ **DHT11 Temperature + Humidity Sensor**
-- 📺 **I2C LCD Display** for local readout
-- 🌐 **Wi-Fi Dashboard** using ESP32 Web Server
-- 🔁 Supports both **Arduino Uno** and **ESP32**
-- 🛠️ Portable & ATL Lab-friendly
-- 🧾 Ideal for **Smart City** / **SDG 13** / **School Science Projects**
+- ✅ **MQ135 Air Quality Sensor** (CO₂, NH₃, smoke, etc.)
+- 🌡️ **DHT11 Sensor** for Temperature & Humidity
+- 📺 **16x2 I2C LCD Display** for live readout
+- 🌐 **Wi-Fi Dashboard** via ESP32 Web Server
+- 🔁 Dual support: **ESP32 NodeMCU** & **Arduino Uno Rev3**
+- 🛠️ Modular, ATL-lab friendly & easily replicable
+- 🧾 Ideal for **Smart City**, **SDG 13**, **SDG 11**, and **School Projects**
 
 ---
 
-## 🛠️ Hardware Used
+## 🛠️ Hardware Components
 
-| Component            | Function                         |
-|----------------------|----------------------------------|
-| ESP32 NodeMCU        | Wi-Fi + Data Processing          |
-| Arduino UNO Rev3     | Alternate Microcontroller        |
-| MQ135 Sensor         | Air Quality Measurement          |
-| DHT11 Sensor         | Temp & Humidity                  |
-| LCD 16x2 (I2C)       | Visual Output                    |
-| Jumper Wires + Breadboard | Prototyping                  |
+| Component                | Purpose                              |
+|--------------------------|--------------------------------------|
+| ESP32 NodeMCU            | Wi-Fi-enabled controller             |
+| Arduino Uno Rev3         | Alternate microcontroller            |
+| MQ135 Air Quality Sensor | Detects harmful gases               |
+| DHT11 Sensor             | Measures temperature & humidity      |
+| LCD 16x2 with I2C        | Displays live data                   |
+| Jumper Wires + Breadboard| Easy prototyping setup               |
 
 ---
 
-## 🌐 Live Preview
+## ⚙️ Versions Available
 
-If hosted via ESP32 (on same Wi-Fi), view live air quality stats via local IP (printed on Serial Monitor).
+### 🔹 ESP32 Version
 
-Or simulate on your personal server.
+- Built-in Wi-Fi
+- Local browser-based dashboard
+- Ideal for real-time wireless monitoring
+
+**ESP32 Wiring:**
+
+| Component        | ESP32 Pin       | Description                         |
+|------------------|------------------|-------------------------------------|
+| **MQ135**        | `D35`            | Analog input from MQ135 (AO pin)    |
+| **DHT11**        | `D4`             | Digital input for temp/humidity     |
+| **LCD I2C**      | `SDA → D21`      | I2C Data line                        |
+|                  | `SCL → D22`      | I2C Clock line                       |
+| **VCC**          | `3V3` or `VIN`   | Use based on your module's voltage  |
+| **GND**          | `GND`            | Common ground                       |
+
+> ⚠️ *If your LCD doesn't display, switch VCC from 3V3 to VIN (5V). Some LCDs need 5V.*
+
+---
+
+### 🔹 Arduino Uno Version
+
+- Offline, LCD-only monitoring
+- Great for standalone usage without Wi-Fi
+
+**Arduino Uno Wiring:**
+
+| Component        | Arduino Pin     | Description                         |
+|------------------|------------------|-------------------------------------|
+| **MQ135**        | `A0`             | Analog input from MQ135             |
+| **DHT11**        | `D4`             | Digital input                       |
+| **LCD I2C**      | `SDA → A4`       | I2C Data line (default on Uno)      |
+|                  | `SCL → A5`       | I2C Clock line                      |
+| **VCC**          | `5V`             | Power line for sensors and LCD      |
+| **GND**          | `GND`            | Ground line                         |
+
+---
+
+## 🧪 How to Use
+
+1. Clone/download this repository.
+2. Select your version:
+   - `ESP32/Rattlestone_ESP32.ino`
+   - `ArduinoUno/Rattlestone_Uno.ino`
+3. Make connections as per your board.
+4. Upload code using Arduino IDE.
+5. View data on:
+   - LCD (both versions)
+   - Browser dashboard (ESP32 only)
+
+---
+
+## 🌐 Web Dashboard (ESP32 Only)
+
+- Open Serial Monitor after upload to find IP.
+- Enter IP in browser (same Wi-Fi).
+- Auto-refreshing UI displays:
+  - Air Quality Value
+  - Status (GOOD / BAD)
+  - Temperature (°C)
+  - Humidity (%)
 
 ---
 
@@ -43,46 +102,31 @@ Or simulate on your personal server.
 
 ---
 
-## 🧪 How to Use
+## 💡 Use Cases
 
-1. Clone this repo.
-2. Choose your board (`ESP32` or `Arduino Uno`)
-3. Connect:
-   - MQ135 → A0 (UNO) or D35 (ESP32)
-   - DHT11 → D4
-   - LCD → SDA/SCL (I2C)
-4. Upload code via Arduino IDE
-5. Monitor values on LCD & via Serial / Web
+- 🌍 Track emissions in unregulated rural factories
+- 🧪 ATL Smart City / SDG 13 & 11 competitions
+- 🛰️ Prototype for decentralized air monitoring
+- 🏫 School innovation expos and science fairs
 
 ---
 
-## ✨ Use Case
+## 🔧 Future Scope
 
-- 🔍 Spot illegal carbon emission in unregulated zones
-- 📚 ATL / School Innovation Projects
-- 🏙️ Smart Village Tech
-- 🌐 Weather Watchdog for the Unseen
-
----
-
-## 💡 Future Upgrades
-
-- 📸 ESP32-CAM for photo documentation
-- ☁️ Firebase/Google Sheets integration
-- 🚘 Rover mode to auto-detect polluters
-- 🔔 Buzzer alerts on threshold
+- 📸 ESP32-CAM integration for visual records
+- ☁️ Firebase / Google Sheets cloud logging
+- 🔊 Buzzer alerts for dangerous thresholds
+- 🤖 Mountable on mobile rovers for site scanning
 
 ---
 
 ## 👨‍💻 Built By
 
-**[Rahul Smritijeet](https://github.com/rahulsmritijeet)** — Student, Innovator, and proud creator of chaos.  
-> This is hardware. Real. Raw. Rattlestone.”
+**[Rahul Smritijeet](https://github.com/rahulsmritijeet)**  
+> *“Pure innovation. Real. Raw. Rattlestone.”*
 
 ---
 
-## ⚖️ License
+## 📄 License
 
-MIT — Use it. Remix it. Just don’t greenwash it.
-
-
+**MIT License** — Use it, remix it, just don't greenwash it.
