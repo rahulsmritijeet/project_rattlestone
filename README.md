@@ -98,7 +98,7 @@
 
 ## 📷 Project Glimpse
 
-![Setup Demo](Images/setup-demo.jpg)
+![Setup Demo](project_rattlestone_poster.png)
 
 ---
 
