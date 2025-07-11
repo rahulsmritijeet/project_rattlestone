@@ -20,7 +20,7 @@
 
 | Component                | Purpose                              |
 |--------------------------|--------------------------------------|
-| ESP32 NodeMCU            | Wi-Fi-enabled controller             |
+| ESP32 NodeMCU            | Wi-Fi-enabled controller   (recommended)          |
 | Arduino Uno Rev3         | Alternate microcontroller            |
 | MQ135 Air Quality Sensor | Detects harmful gases               |
 | DHT11 Sensor             | Measures temperature & humidity      |
